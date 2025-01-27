@@ -1,6 +1,2 @@
-[console_scripts]
-
-
 [nbdev]
 dataidea = dataidea._modidx:d
-

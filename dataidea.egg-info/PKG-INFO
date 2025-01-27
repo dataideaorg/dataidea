@@ -1,13 +1,12 @@
 Metadata-Version: 2.1
 Name: dataidea
-Version: 0.1.5
+Version: 0.1.9
 Summary: Learn Programming For Data Science
 Home-page: https://github.com/dataidea/dataidea
 Author: jumashafara
 Author-email: jumashafara0@gmail.com
 License: Apache Software License 2.0
 Keywords: nbdev,jupyter,jupyter notebook,python,dataidea,machine learning,data,data science,science
-Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
 Classifier: Natural Language :: English
@@ -18,8 +17,16 @@ Classifier: Programming Language :: Python :: 3.10
 Classifier: License :: OSI Approved :: Apache Software License
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
-Provides-Extra: dev
 License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: statsmodels
+Requires-Dist: scikit-learn
+Requires-Dist: seaborn
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: yt-dlp
+Provides-Extra: dev
 
 ## DATAIDEA Quickstart
 
@@ -566,5 +573,3 @@ loaded_model.predict(X)
            'Classical', 'Classical'], dtype=object)
 
 more to follow...
-
-
