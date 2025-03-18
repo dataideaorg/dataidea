@@ -7,6 +7,7 @@ setup.py
 dataidea/__init__.py
 dataidea/_modidx.py
 dataidea/datasets.py
+dataidea/logger.py
 dataidea/models.py
 dataidea/packages.py
 dataidea/statistics.py

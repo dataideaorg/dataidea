@@ -1,6 +1,6 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.2
 Name: dataidea
-Version: 0.1.9
+Version: 0.1.10
 Summary: Learn Programming For Data Science
 Home-page: https://github.com/dataidea/dataidea
 Author: jumashafara
@@ -20,13 +20,24 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: numpy
 Requires-Dist: pandas
-Requires-Dist: statsmodels
 Requires-Dist: scikit-learn
-Requires-Dist: seaborn
-Requires-Dist: scipy
-Requires-Dist: matplotlib
+Requires-Dist: plotly
 Requires-Dist: yt-dlp
+Requires-Dist: requests
+Requires-Dist: python-dotenv
 Provides-Extra: dev
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
 
 ## DATAIDEA Quickstart
 

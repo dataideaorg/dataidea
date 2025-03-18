@@ -1,8 +1,8 @@
-import os
+from pathlib import Path
 import numpy as np
 import pandas as pd
 
-def loadDataset(name:str=None, inbuilt=True, file_type:str=None):
+def load_dataset(name:str=None, inbuilt=True, file_type:str=None):
     '''
     Easily load datasets that are inbuit in DATAIDEA
 
@@ -14,8 +14,8 @@ def loadDataset(name:str=None, inbuilt=True, file_type:str=None):
     '''
 
     if inbuilt:
-        package_dir = os.path.dirname(os.path.abspath(__file__))
-        data_path = os.path.join(package_dir, 'datasets', f'{name}.csv')
+        package_dir = Path(__file__).parent
+        data_path = package_dir / 'datasets' / f'{name}.csv'
         return pd.read_csv(data_path)
 
     if file_type == None:

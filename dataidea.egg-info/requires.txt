@@ -1,10 +1,9 @@
 numpy
 pandas
-statsmodels
 scikit-learn
-seaborn
-scipy
-matplotlib
+plotly
 yt-dlp
+requests
+python-dotenv
 
 [dev]
