@@ -1,6 +1,18 @@
 import requests
+import os
 
-def log_event(data:dict):
+def login(username:str, password:str):
+    url = 'https://loggerapi.dataidea.org/api/auth/token/'
+    response = requests.post(url, json={'username': username, 'password': password})
+
+    # save in the environment variable
+    os.environ['DATAIDEA_ACCESS_TOKEN'] = response.json()['access']
+    os.environ['DATAIDEA_REFRESH_TOKEN'] = response.json()['refresh']
+
+    print(f"Login successful for {username}")
+    return response.json()
+
+def event_log(data:dict):
     '''
     Log an event to the DATAIDEA LOGGER API
 
@@ -16,7 +28,7 @@ def log_event(data:dict):
         'metadata': {'test': 'test'}
     }
     '''
-    url = 'https://loggerapi.dataidea.org/event-log'
+    url = 'https://loggerapi.dataidea.org/api/event-log/'
     response = requests.post(url, json=data)
 
     if response.status_code == 201:
@@ -24,22 +36,20 @@ def log_event(data:dict):
     else:
         print('Failed to log event')
 
-def get_event_logs(api_key:str):
-    '''
-    Get event logs from the DATAIDEA LOGGER API
+    return response.status_code
 
-    parameters:
-    api_key: str
+# def get_event_logs():
+#     '''
+#     Get event logs from the DATAIDEA LOGGER API
+#     '''
+#     access_token = os.getenv('DATAIDEA_ACCESS_TOKEN')
 
-    eg:
-    api_key = '1234567890'
-    '''
-    url = 'https://loggerapi.dataidea.org/event-log'
-    response = requests.get(url, headers={'Authorization': f'Bearer {api_key}'})
-    return response.json()
+#     url = 'https://loggerapi.dataidea.org/api/event-log/'
+#     response = requests.get(url, headers={'Authorization': f'Bearer {access_token}'})
+#     return response.json()
 
 
-def log_llm_event(data:dict):
+def llm_log(data:dict):
     '''
     Log an LLM event to the DATAIDEA LOGGER API
 
@@ -55,7 +65,7 @@ def log_llm_event(data:dict):
         'response': 'This is a test response',
     }
     '''
-    url = 'https://loggerapi.dataidea.org/llm-log'
+    url = 'https://loggerapi.dataidea.org/api/llm-log/'
     response = requests.post(url, json=data)
 
     if response.status_code == 201:
@@ -63,30 +73,36 @@ def log_llm_event(data:dict):
     else:
         print('Failed to log LLM event')
 
+    return response.status_code
 
-def get_llm_event_logs(api_key:str):
-    '''
-    Get LLM event logs from the DATAIDEA LOGGER API
 
-    parameters:
-    api_key: str
-    '''
-    url = 'https://loggerapi.dataidea.org/llm-log'
-    response = requests.get(url, headers={'Authorization': f'Bearer {api_key}'})
-    return response.json()
+# def get_llm_event_logs():
+#     '''
+#     Get LLM event logs from the DATAIDEA LOGGER API
+#     '''
+#     access_token = os.getenv('DATAIDEA_ACCESS_TOKEN')
+#     url = 'https://loggerapi.dataidea.org/api/llm-log/'
+#     response = requests.get(url, headers={'Authorization': f'Bearer {access_token}'})
+#     return response.json()
 
 
 if __name__ == '__main__':
-    log_event({
-        'api_key': '1234567890',
+    api_key = os.getenv('DATAIDEA_API_KEY')
+
+    login('jumashafara', 'Chappie@256')
+    
+    event_log({
+        'api_key': api_key,
         'user_id': '1234567890',
         'message': 'This is a test message',
         'level': 'info',
         'metadata': {'test': 'test'}
     })
 
-    log_llm_event({
-        'api_key': '1234567890',
+    llm_log({
+        'api_key': api_key,
         'user_id': '1234567890',
         'source': 'llm',
+        'query': 'This is a test query',
+        'response': 'This is a test response',
     })

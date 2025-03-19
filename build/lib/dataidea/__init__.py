@@ -4,7 +4,5 @@ from .packages import *
 from .youtube import *
 from .logger import *
 
-load_dotenv()
-
 __version__ = "0.1.6"
 
