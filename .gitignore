@@ -2,3 +2,15 @@
 .venv
 __pycache__
 venv
+build
+dist
+*.pyc
+*.tar.gz
+*.whl
+*.egg-info
+*.dist-info
+*.egg
+*.tar
+*.zip
+*.tar.gz
+*.whl

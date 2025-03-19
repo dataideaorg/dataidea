@@ -1,2 +1,0 @@
-[nbdev]
-dataidea = dataidea._modidx:d

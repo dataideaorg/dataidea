@@ -1,16 +1,6 @@
 import requests
 import os
 
-def login(username:str, password:str):
-    url = 'https://loggerapi.dataidea.org/api/auth/token/'
-    response = requests.post(url, json={'username': username, 'password': password})
-
-    # save in the environment variable
-    os.environ['DATAIDEA_ACCESS_TOKEN'] = response.json()['access']
-    os.environ['DATAIDEA_REFRESH_TOKEN'] = response.json()['refresh']
-
-    print(f"Login successful for {username}")
-    return response.json()
 
 def event_log(data:dict):
     '''
@@ -37,16 +27,6 @@ def event_log(data:dict):
         print('Failed to log event')
 
     return response.status_code
-
-# def get_event_logs():
-#     '''
-#     Get event logs from the DATAIDEA LOGGER API
-#     '''
-#     access_token = os.getenv('DATAIDEA_ACCESS_TOKEN')
-
-#     url = 'https://loggerapi.dataidea.org/api/event-log/'
-#     response = requests.get(url, headers={'Authorization': f'Bearer {access_token}'})
-#     return response.json()
 
 
 def llm_log(data:dict):
@@ -76,20 +56,8 @@ def llm_log(data:dict):
     return response.status_code
 
 
-# def get_llm_event_logs():
-#     '''
-#     Get LLM event logs from the DATAIDEA LOGGER API
-#     '''
-#     access_token = os.getenv('DATAIDEA_ACCESS_TOKEN')
-#     url = 'https://loggerapi.dataidea.org/api/llm-log/'
-#     response = requests.get(url, headers={'Authorization': f'Bearer {access_token}'})
-#     return response.json()
-
-
 if __name__ == '__main__':
     api_key = os.getenv('DATAIDEA_API_KEY')
-
-    login('jumashafara', 'Chappie@256')
     
     event_log({
         'api_key': api_key,
