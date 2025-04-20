@@ -1,8 +1,14 @@
-from .datasets import *
-from .models import *
-from .packages import *
-from .youtube import *
-from .logger import *
+"""
+DataIdea - A package to simplify common data analysis tasks
 
-__version__ = "0.1.6"
+This package provides utilities for data loading, model management,
+and various helper functions for data analysis workflows.
+"""
 
+from dataidea.core import *
+from dataidea.io import *
+from dataidea.models import *
+from dataidea.utils import *
+from dataidea.visualization import *
+
+__version__ = "0.1.17" 

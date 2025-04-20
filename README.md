@@ -1,27 +1,67 @@
-## DATAIDEA Quickstart
+# DataIdea
 
-### What is the `dataidea` package?
+A Python package to simplify common data analysis tasks and workflows.
 
-This is a package we are currently developing to help new and old data analysists walk around some repetitive and sometimes disturbing tasks that a data analyst does day to day
+## Overview
 
-This library currently extends and depends on majorly numpy, pandas as sklearn and these, among a few others will be installed once you install dataidea
+DataIdea provides utilities for data analysts to streamline repetitive tasks in the data analysis process. It builds upon popular libraries like pandas, numpy, and scikit-learn to offer a more user-friendly interface for common operations.
 
-## Installing `dataidea`
+## Features
 
-- To install dataidea, you must have python installed on your machine
-- It's advised that you install it in a virtual environment
-- You can install `dataidea` using the command below
+- **Dataset Management**: Easily load built-in datasets or your own custom data
+- **Model Persistence**: Simple functions to save and load machine learning models
+- **Performance Monitoring**: Time your function execution with the `timer` decorator
+- **Logging Utilities**: Log events and LLM interactions via our API
+- **YouTube Integration**: Download video data for analysis
 
-```python
+## Installation
+
+```bash
 pip install dataidea
 ```
 
-### Learning `dataidea`
+For development:
+```bash
+git clone https://github.com/dataideaorg/dataidea.git
+cd dataidea
+poetry install
+```
 
-The best way to get started with dataidea (and data analysis) is to complete the free course.
+## Quick Start
 
-To see what’s possible with dataidea, take a look at the Quick Start
+```python
+import dataidea as di
 
-Read through the [Tutorials](https://docs.dataidea.org) to learn how to load datasets, train your own models on your own datasets. Use the navigation to look through the dataidea documentation. Every class, function, and method is documented.
+# Load a built-in dataset
+df = di.load_dataset('titanic')
 
-Link to the DATAIDEA documentation: [https://docs.dataidea.org](https://docs.dataidea.org)
+# Save a machine learning model
+from sklearn.ensemble import RandomForestClassifier
+model = RandomForestClassifier().fit(X, y)
+di.save_model(model, 'model.di')
+
+# Load the model
+loaded_model = di.load_model('model.di')
+
+# Time a function
+from dataidea.utils import timer
+@timer
+def process_data(data):
+    return processed_data
+
+# Download YouTube video
+from dataidea.io import download_youtube
+download_youtube(url="https://www.youtube.com/watch?v=example", output_folder="videos")
+```
+
+## Available Datasets
+
+DataIdea includes datasets for practice: `titanic`, `boston`, `fpl`, `mall`, `air_passengers`, `melbourne`, and more.
+
+## Documentation
+
+For detailed documentation, visit [https://docs.dataidea.org](https://docs.dataidea.org).
+
+## License
+
+MIT License
