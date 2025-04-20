@@ -3,6 +3,7 @@ Timing utilities for measuring function execution time
 """
 import time
 import functools
+from rich import print as rich_print
 
 def timer(func):
     """
@@ -32,7 +33,7 @@ def timer(func):
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
-        print(f"{func.__name__} took {end_time - start_time:.3f} seconds to execute")
+        rich_print(f"{func.__name__} took {end_time - start_time:.3f} seconds to execute")
         return result
     return wrapper
 

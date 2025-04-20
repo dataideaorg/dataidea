@@ -3,7 +3,7 @@ Logging utilities for tracking events and LLM usage
 """
 import requests
 import logging
-from rich import print as rich_print
+from dataidea.utils.printing import print
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -54,9 +54,9 @@ def event_log(data):
         response = requests.post(url, json=data)
         
         if response.status_code == 201:
-            rich_print('[green]Event logged successfully[/green]')
+            print('[green]Event logged successfully[/green]')
         else:
-            rich_print(f'[red]Failed to log event: {response.status_code}[/red]')
+            print(f'[red]Failed to log event: {response.status_code}[/red]')
         
         return response.status_code
     except Exception as e:
@@ -108,9 +108,9 @@ def llm_log(data):
         response = requests.post(url, json=data)
         
         if response.status_code == 201:
-            rich_print('[green]LLM event logged successfully[/green]')
+            print('[green]LLM event logged successfully[/green]')
         else:
-            rich_print(f'[red]Failed to log LLM event: {response.status_code}[/red]')
+            print(f'[red]Failed to log LLM event: {response.status_code}[/red]')
         
         return response.status_code
     except Exception as e:

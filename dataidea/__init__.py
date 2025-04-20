@@ -11,4 +11,4 @@ from dataidea.models import *
 from dataidea.utils import *
 from dataidea.visualization import *
 
-__version__ = "0.1.17" 
+__version__ = "0.1.20" 
