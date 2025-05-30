@@ -1,4 +1,4 @@
-"""
+f"""
 Functions for downloading YouTube videos
 """
 import os
@@ -29,10 +29,9 @@ def is_valid_url(url):
     youtube_regex = r'(https?://)?(www\.)?(youtube\.com|youtu\.?be)/.+$'
     return re.match(youtube_regex, url) is not None
 
-def download(url=None, output_folder=''):
+def download(url=None, output_folder='downloads'):
     """
     Downloads a YouTube video.
-    
     Parameters:
     -----------
     url : str
@@ -73,4 +72,4 @@ def download(url=None, output_folder=''):
     
     return False
 
-__all__ = ['download', 'is_valid_url'] 
+__all__ = ['download', 'is_valid_url']  
