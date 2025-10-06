@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dataidea"
-version = "0.1.22"
+version = "0.1.25"
 description = "A package to simplify common data analysis tasks"
 authors = ["jumashafara <jumashafara0@gmail.com>"]
 readme = "README.md"

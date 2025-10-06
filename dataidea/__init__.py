@@ -7,8 +7,8 @@ and various helper functions for data analysis workflows.
 
 from dataidea.core import *
 from dataidea.io import *
-from dataidea.models import *
+from dataidea.sklearn import *
 from dataidea.utils import *
 from dataidea.visualization import *
 
-__version__ = "0.1.20" 
+__version__ = "0.1.25" 
