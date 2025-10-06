@@ -10,4 +10,4 @@ from dataidea.io import *
 from dataidea.sklearn import *
 from dataidea.utils import *
 
-__version__ = "0.1.28" 
+__version__ = "0.1.29" 
