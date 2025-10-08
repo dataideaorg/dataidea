@@ -62,4 +62,4 @@ def classification_report(y_true, y_pred, output_dict=False):
     """
     return sklearn_classification_report(y_true, y_pred, output_dict=output_dict)
 
-__all__ = ['load_model', 'save_model', 'regression_report', 'classification_report'] 
+__all__ = ['regression_report', 'classification_report'] 

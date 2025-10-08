@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dataidea"
-version = "0.1.31"
+version = "0.1.32"
 description = "A package to simplify common data analysis tasks"
 authors = ["jumashafara <jumashafara0@gmail.com>"]
 readme = "README.md"
@@ -35,13 +35,11 @@ scikit-learn = {version = ">=1.0.0", optional = false}
 scipy = {version = ">=1.7.0", optional = false}
 joblib = {version = ">=1.1.0", optional = false}
 plotly = {version = ">=5.0.0", optional = false}
-yt-dlp = {version = ">=2023.1.1", optional = false}
 
 [tool.poetry.extras]
 data = ["pandas", "numpy", "scikit-learn", "scipy", "joblib"]
 viz = ["plotly"]
-youtube = ["yt-dlp"]
-all = ["pandas", "numpy", "scikit-learn", "scipy", "joblib", "plotly", "yt-dlp"]
+all = ["pandas", "numpy", "scikit-learn", "scipy", "joblib", "plotly"]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"
