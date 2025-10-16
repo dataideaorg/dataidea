@@ -4,11 +4,13 @@ Logging utilities for tracking events and LLM usage
 import requests
 import logging
 from dataidea.utils.printing import print
+from dataidea.utils.timing import timer
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+@timer
 def event_log(data):
     """
     Log an event to the DATAIDEA LOGGER API.
@@ -63,6 +65,7 @@ def event_log(data):
         logger.error(f"Error sending event log: {e}")
         return 500
 
+@timer
 def llm_log(data):
     """
     Log an LLM event to the DATAIDEA LOGGER API.

@@ -7,8 +7,9 @@ from sklearn.metrics import (
     classification_report as sklearn_classification_report)
 import numpy as np
 import pandas as pd
+from dataidea.utils.timing import timer
 
-
+@timer
 def regression_report(y_true, y_pred, n_features=None, output_dict=False, index_name='Metric'):
     y_true = np.asarray(y_true)
     y_pred = np.asarray(y_pred)
@@ -45,6 +46,7 @@ def regression_report(y_true, y_pred, n_features=None, output_dict=False, index_
         return df
 
 
+@timer
 def classification_report(y_true, y_pred, output_dict=False):
     """
     Generate a classification report for the model.
